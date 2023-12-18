@@ -1,0 +1,20 @@
+---
+const {
+  post: { title, description, created_at, author, id, content },
+} = Astro.props;
+---
+
+<a href={`/post/${id}`}>
+  <article
+  class="bg-[#1f2937] text-white max-w-sm px-5 py-6 flex-col gap-2 rounded-md"
+>
+  <img src="https://picsum.photos/100/100" alt="image" class="rounded-md" />
+  <h2 class="text-2xl font-bold">{title}</h2>
+  <p>{description}</p>
+  <p class="text-zinc-300">
+    {content.slice(0, 100) + "..."}    
+  </p>
+  <h4 class=" font-bold">{author}</h4>
+  <p class="text-zinc-300">{new Date(created_at).toDateString()} - 16 min read</p>
+</article>
+</a>
